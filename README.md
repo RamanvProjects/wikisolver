@@ -1,0 +1,2 @@
+# wikisolver
+Solves wikipedia
