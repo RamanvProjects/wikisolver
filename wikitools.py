@@ -41,9 +41,9 @@ class WikiSolver:
 
 	def depth_first_crawl(self, ID, depth):
 		# Essentially a pre-order traversal
-		
+
 		if self.limit <= 0:
-			print "end" 
+			print "end"
 		elif depth == 0 and ID > 0:
 			print str(self.limit) + ": " + ID
 			self.limit -= 1
@@ -57,7 +57,7 @@ class WikiSolver:
 
 	def get_source(self, link):
 		webPage = urllib.urlopen(link)
-		source = webPage.read()	
+		source = webPage.read()
 		webPage.close()
 		return source
 
@@ -131,21 +131,9 @@ class WikiSolver:
 	    path.reverse()
 	    return path
 
-	def solves(self, ID_init, ID_end, max_depth, graph):
-
-		for ID_key in graph.keys():
-			for ID in graph[ID_key]:
-				if not ID in graph:
-					graph[ID] = self.get_all_IDs(ID)
-
-			if ID_end in graph:
-				print graph
-				return "I HATE YOUR GUTS" 
-
-		print graph
 
 
-w = WikiSolver("Isaac Newton", "Apple")
+
 #print w.get_source("http://en.wikipedia.org/w/api.php?action=query&format=json&pageids=14627&generator=links&gpllimit=max")
 #http://en.wikipedia.org/w/api.php?format=json&action=query&pageids=3258248|11524059&prop=extracts&excontinue=1&exlimit=4
 #https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&exlimit=4&excontinue=&exsentences=5&pageids=3258248|14627|18978754
